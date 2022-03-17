@@ -1,0 +1,32 @@
+{
+  "customer": [
+    {
+      "firstname": "durga prasad",
+      "lastname": "yadav",
+      "Account": "23865869085",
+      "Email": "Lucky@gmail.com",
+      "Balance": "32800"
+    },
+    {
+      "firstname": "deepak",
+      "lastname": "yadav",
+      "Account": "23865869085",
+      "Email": "Lucky@gmail.com",
+      "Balance": "32800"
+    },
+    {
+      "firstname": "monu",
+      "lastname": "yadav",
+      "Account": "23865869085",
+      "Email": "Lucky@gmail.com",
+      "Balance": "32800"
+    },
+    {
+      "firstname": " prasad",
+      "lastname": "yadav",
+      "Account": "23865869085",
+      "Email": "Lucky@gmail.com",
+      "Balance": "32800"
+    }
+  ]
+}
