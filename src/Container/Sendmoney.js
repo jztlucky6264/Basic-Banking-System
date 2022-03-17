@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const Sendmoney = (props) => {
@@ -51,30 +50,30 @@ const Sendmoney = (props) => {
 
   return (
     <>
-      <form class=" row vertical-center-row  g-4  container m-5">
-        <div class="col-md-12 d-flex justify-content-center ">
+      <form className=" row vertical-center-row  g-4  container m-5">
+        <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
-            <label for="validationCustom01" class="form-label">
+            <label for="validationCustom01" className="form-label">
               Sent By
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="validationCustom01"
               required
               disabled={true}
               value={firstnamesender + " " + lastnamesender}
             />
-            <div class="valid-feedback">Looks good!</div>
+            <div className="valid-feedback">Looks good!</div>
           </div>
         </div>
 
-        <div class="col-md-12 d-flex justify-content-center ">
+        <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
             <label for="validationDefault04" class="form-label">
               Recieve by
             </label>
-            <select class="form-select" id="validationDefault04" required>
+            <select className="form-select" id="validationDefault04" required>
               {datause.map((val, ind) => {
                 return (
                   <option selected value="">
@@ -85,39 +84,39 @@ const Sendmoney = (props) => {
             </select>
           </div>
         </div>
-        <div class="col-md-12 d-flex justify-content-center ">
+        <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
-            <label for="validationCustom01" class="form-label">
+            <label for="validationCustom01" className="form-label">
               Amount
             </label>
             <input
               onChange={AmountChange}
               value={amount}
               type="number"
-              class="form-control"
+              className="form-control"
               id="validationCustom01"
               required
             />
-            <div class="valid-feedback">Looks good!</div>
+            <div className="valid-feedback">Looks good!</div>
           </div>
         </div>
-        <div class="col-12 d-flex justify-content-center ">
-          <div class="form-check">
+        <div className="col-12 d-flex justify-content-center ">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="invalidCheck2"
               required
             />
-            <label class="form-check-label" for="invalidCheck2">
+            <label className="form-check-label" for="invalidCheck2">
               Agree to terms and conditions
             </label>
           </div>
         </div>
-        <div class="col-12 d-flex justify-content-center ">
+        <div className="col-12 d-flex justify-content-center ">
           <button
-            class="btn btn-primary col-4  "
+            className="btn btn-primary col-4  "
             type="submit"
             onClick={TransferClick}
           >

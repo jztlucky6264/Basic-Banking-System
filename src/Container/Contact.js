@@ -71,16 +71,16 @@ const Contact = () => {
             <form
               method="POST"
               // onSubmit={formSubmit}
-              class="row g-3 needs-validation"
+              className="row g-3 needs-validation"
               novalidate
             >
-              <div class="col-md-4">
-                <label for="validationCustom01" class="form-label">
+              <div className="col-md-4">
+                <label for="validationCustom01" className="form-label">
                   FullName
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom01"
                   placeholder="Enter your name"
                   name="fullname"
@@ -88,15 +88,15 @@ const Contact = () => {
                   onChange={InputEvent}
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
+                <div className="valid-feedback">Looks good!</div>
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom02" class="form-label">
+              <div className="col-md-4">
+                <label for="validationCustom02" className="form-label">
                   Phone
                 </label>
                 <input
                   type="Text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Mobile Number"
                   name="phone"
                   value={data.phone}
@@ -104,19 +104,19 @@ const Contact = () => {
                   id="validationCustom02"
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
+                <div className="valid-feedback">Looks good!</div>
               </div>
-              <div class="col-md-4">
-                <label for="validationCustomUsername" class="form-label">
+              <div className="col-md-4">
+                <label for="validationCustomUsername" className="form-label">
                   Username
                 </label>
-                <div class="input-group has-validation">
-                  <span class="input-group-text" id="inputGroupPrepend">
+                <div className="input-group has-validation">
+                  <span className="input-group-text" id="inputGroupPrepend">
                     @
                   </span>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="name@example.com"
                     name="email"
                     value={data.email}
@@ -125,33 +125,37 @@ const Contact = () => {
                     aria-describedby="inputGroupPrepend"
                     required
                   />
-                  <div class="invalid-feedback">Please choose a username.</div>
+                  <div className="invalid-feedback">
+                    Please choose a username.
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <label for="validationCustom03" class="form-label">
+              <div className="col-md-6">
+                <label for="validationCustom03" className="form-label">
                   City
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   name="city"
                   value={data.city}
                   onChange={InputEvent}
                   id="validationCustom03"
                   required
                 />
-                <div class="invalid-feedback">Please provide a valid city.</div>
+                <div className="invalid-feedback">
+                  Please provide a valid city.
+                </div>
               </div>
-              <div class="col-md-3">
-                <label for="validationCustom04" class="form-label">
+              <div className="col-md-3">
+                <label for="validationCustom04" className="form-label">
                   State
                 </label>
                 <select
                   name="state"
                   value={data.state}
                   onChange={InputEvent}
-                  class="form-select"
+                  className="form-select"
                   id="validationCustom04"
                   required
                 >
@@ -160,15 +164,17 @@ const Contact = () => {
                   </option>
                   <option>Delhi</option>
                 </select>
-                <div class="invalid-feedback">Please select a valid state.</div>
+                <div className="invalid-feedback">
+                  Please select a valid state.
+                </div>
               </div>
-              <div class="col-md-3">
-                <label for="validationCustom05" class="form-label">
+              <div className="col-md-3">
+                <label for="validationCustom05" className="form-label">
                   Zip
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom05"
                   name="zip"
                   value={data.zip}
@@ -176,15 +182,17 @@ const Contact = () => {
                   required
                 />
 
-                <div class="invalid-feedback">Please provide a valid zip.</div>
+                <div className="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="validationCustom06" class="form-label">
+              <div className="mb-3">
+                <label for="validationCustom06" className="form-label">
                   Textarea
                 </label>
                 <textarea
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom06"
                   rows="3"
                   name="Textarea"
@@ -192,11 +200,11 @@ const Contact = () => {
                   onChange={InputEvent}
                   required
                 ></textarea>
-                <div class="invalid-feedback">Looks good !</div>
+                <div className="invalid-feedback">Looks good !</div>
               </div>
-              <div class="col-12">
+              <div className="col-12">
                 <button
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={postData}
                   type="submit"
                 >

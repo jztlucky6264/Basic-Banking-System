@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { useHistory } from "react-router-dom";
 
 const Customer = () => {
   const history = useHistory();
   const [datause, setDataUse] = useState([]);
 
-  const Clickable = () => {};
   const getData = async (e) => {
     try {
       const res = await fetch(
@@ -34,7 +32,7 @@ const Customer = () => {
   }, []);
   return (
     <>
-      <table class="container mt-5 table table-hover">
+      <table className="container mt-5 table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
