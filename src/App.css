@@ -6,8 +6,7 @@
 body {
   background: url("./Img/bank.avif");
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-clip: border-box;
+  background-size: 100vw 100vh;
   background-attachment: fixed;
   background-position: center;
 }

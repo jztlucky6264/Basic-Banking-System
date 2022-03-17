@@ -32,7 +32,7 @@ const Customer = () => {
   }, []);
   return (
     <>
-      <table className="container mt-5 table table-hover">
+      <table className="container-fluid  mt-5 table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>

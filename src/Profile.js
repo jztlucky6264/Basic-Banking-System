@@ -37,7 +37,7 @@ const Profile = (props) => {
       </div>
       <div className="d-flex justify-content-center  mt-5 mx-auto">
         <button
-          className="btn btn-primary col-3 mt-5"
+          className="btn btn-primary col-3 mt-5 mb-5"
           type="button"
           onClick={() => {
             history.push({
