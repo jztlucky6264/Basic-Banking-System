@@ -23,7 +23,7 @@ const Contact = () => {
 
     if (fullname && phone && email && city && state && zip && Textarea) {
       const res = await fetch(
-        "https://reactcontactform-70d46-default-rtdb.firebaseio.com/contactDetails.json",
+        "https://customerquery-40554-default-rtdb.firebaseio.com/customer.json",
         {
           method: "POST",
           headers: {

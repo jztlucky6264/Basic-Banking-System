@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Sendmoney = (props) => {
+  //get history for redirect
+
   const history = useHistory();
-  const { firstnamesender, lastnamesender, Balance } =
+
+  //getting data by props
+
+  const { firstnamesender, lastnamesender, SenderBalance, id } =
     (props.location && props.location) || {};
+
+  /*get id /indx of user */
+
+  console.log(id);
+
   const [datause, setDataUse] = useState([]);
   const getData = async (e) => {
     try {
@@ -18,7 +30,7 @@ const Sendmoney = (props) => {
         }
       );
       const data = await res.json();
-      console.log(data);
+
       setDataUse(data);
       if (!res.ok === 200) {
         const error = new Error(res.error);
@@ -32,51 +44,54 @@ const Sendmoney = (props) => {
     getData();
   }, []);
 
-  const [amount, setAmount] = useState("");
+  //update data in database
 
-  const AmountChange = (e) => {
-    setAmount(e.target.value);
-  };
-  const TransferClick = (e) => {
+  const patchData = async (e) => {
     e.preventDefault();
-    if (amount > Balance) {
-      alert("insufficient balance");
-    } else {
-      alert("money transfer successfully");
-      setAmount(" ");
-      history.push("/customer");
-    }
+    fetch(
+      `https://basic-banking-e3b64-default-rtdb.firebaseio.com/customer/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ Balance: 5 }),
+      }
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json.Balance);
+      });
   };
 
   return (
     <>
-      <form className=" row vertical-center-row  g-4  container m-5">
+      <form
+        method="PATCH"
+        className=" row vertical-center-row  g-4  container mt-5"
+      >
         <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
-            <label for="validationCustom01" className="form-label">
-              Sent By
+            <label htmlFor="validationDefault03" className="form-label">
+              send by
             </label>
-            <input
-              type="text"
-              className="form-control"
-              id="validationCustom01"
-              required
-              disabled={true}
-              value={firstnamesender + " " + lastnamesender}
-            />
+            <select className="form-select" id="validationDefault03" required>
+              <option>select</option>
+              <option key={id}>{firstnamesender + " " + lastnamesender}</option>
+            </select>
             <div className="valid-feedback">Looks good!</div>
           </div>
         </div>
 
         <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
-            <label for="validationDefault04" class="form-label">
+            <label htmlFor="validationDefault04" className="form-label">
               Recieve by
             </label>
             <select className="form-select" id="validationDefault04" required>
               {datause.map((val, ind) => {
                 return (
-                  <option selected value="">
+                  <option key={val.id}>
                     {val.firstname + " " + val.lastname}
                   </option>
                 );
@@ -86,12 +101,10 @@ const Sendmoney = (props) => {
         </div>
         <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
-            <label for="validationCustom01" className="form-label">
+            <label htmlFor="validationCustom01" className="form-label">
               Amount
             </label>
             <input
-              onChange={AmountChange}
-              value={amount}
               type="number"
               className="form-control"
               id="validationCustom01"
@@ -100,28 +113,16 @@ const Sendmoney = (props) => {
             <div className="valid-feedback">Looks good!</div>
           </div>
         </div>
-        <div className="col-12 d-flex justify-content-center ">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              value=""
-              id="invalidCheck2"
-              required
-            />
-            <label className="form-check-label" for="invalidCheck2">
-              Agree to terms and conditions
-            </label>
-          </div>
-        </div>
+
         <div className="col-12 d-flex justify-content-center ">
           <button
             className="btn btn-primary col-4  "
             type="submit"
-            onClick={TransferClick}
+            onClick={patchData}
           >
             Send Money
           </button>
+          <ToastContainer />
         </div>
       </form>
     </>

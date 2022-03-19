@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Profile = (props) => {
   const history = useHistory();
-  const { firstname, lastname, Email, Account, Balance } =
+  const { firstname, lastname, Email, Account, Balance, id } =
     (props.location && props.location) || {};
 
   return (
@@ -28,7 +28,7 @@ const Profile = (props) => {
                   {Account}
                 </li>
                 <li className="list-group-item bg-info text-white">
-                  {Balance}
+                  ₹ {Balance}
                 </li>
               </ul>
             </div>
@@ -44,7 +44,8 @@ const Profile = (props) => {
               pathname: "/sendmoney",
               firstnamesender: firstname,
               lastnamesender: lastname,
-              Balance: Balance,
+              SenderBalance: Balance,
+              id: id,
             });
           }}
         >

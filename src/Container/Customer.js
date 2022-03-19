@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 const Customer = () => {
   const history = useHistory();
   const [datause, setDataUse] = useState([]);
-
+  //fetching list of customer
   const getData = async (e) => {
     try {
       const res = await fetch(
@@ -27,12 +27,14 @@ const Customer = () => {
       console.log(error);
     }
   };
+  //fetching transection list
+
   useEffect(() => {
     getData();
   }, []);
   return (
     <>
-      <table className="container-fluid  mt-5 table table-hover">
+      <table className="container  mt-5 table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -47,11 +49,12 @@ const Customer = () => {
           {datause.map((val, ind) => {
             return (
               <tr
+                key={val.id}
                 onClick={() => {
                   history.push({
                     pathname: "/profile",
                     datause: { datause },
-                    ind: { ind },
+                    id: val.id,
                     firstname: val.firstname,
                     lastname: val.lastname,
                     Email: val.Email,
@@ -60,7 +63,7 @@ const Customer = () => {
                   });
                 }}
               >
-                <th scope="row">{ind + 1}</th>
+                <th scope="row">{val.id}</th>
                 <td>{val.firstname}</td>
                 <td> {val.lastname}</td>
                 <td>{val.Email}</td>
