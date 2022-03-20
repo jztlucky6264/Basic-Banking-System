@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, onValue, ref } from "firebase/database";
-import { database } from "./firebase";
+
 import { useHistory } from "react-router-dom";
 
 const Customer = () => {
@@ -12,7 +12,7 @@ const Customer = () => {
     const starCountRef = ref(db, "customer/");
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
+      /*  console.log(data); */
       setDataUse(data);
     });
   };

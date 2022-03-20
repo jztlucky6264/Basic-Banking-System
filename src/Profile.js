@@ -6,7 +6,7 @@ const Profile = (props) => {
 
   const { firstname, lastname, Email, Account, Balance, ind } =
     (props.location && props.location) || {};
-  console.log(ind);
+  /* console.log(ind); */
   return (
     <>
       <div className="card  mb-3 bg-transparent border-0 container mt-5">

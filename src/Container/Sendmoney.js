@@ -13,7 +13,7 @@ const Sendmoney = (props) => {
   const { firstnamesender, lastnamesender, SenderBalance, senderindx } =
     (props.location && props.location) || {};
 
-  console.log(senderindx);
+  /*   console.log(senderindx); */
   //store data of users
   const [datause, setDataUse] = useState([]);
 
@@ -28,7 +28,7 @@ const Sendmoney = (props) => {
     const starCountRef = ref(db, "customer/");
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
+      /* console.log(data); */
       setDataUse(data);
     });
   };
@@ -38,7 +38,7 @@ const Sendmoney = (props) => {
     const starCountRef = ref(db, "customer/" + index + "/Balance");
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
+      /*  console.log(data); */
       setPreBalancerecieve(data);
     });
   };
@@ -46,28 +46,28 @@ const Sendmoney = (props) => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(preBalancerecieve);
+  /* console.log(preBalancerecieve); */
 
   //update data in database
 
   const [amount, setAmount] = useState({
     Balancesend: "",
   });
-  console.log("index of Reciever", index);
+  /* console.log("index of Reciever", index); */
   const BalanceChange = (event) => {
     const { name, value } = event.target;
     setAmount({ ...amount, [name]: value });
   };
   //convert string data into integer
   const numberAsInt = parseInt(amount.Balancesend, 10);
-  console.log("string covert to integer", numberAsInt);
+  /* console.log("string covert to integer", numberAsInt); */
   const senderUpdatebalance = SenderBalance - numberAsInt;
-  console.log(senderUpdatebalance);
+  /*  console.log(senderUpdatebalance); */
   //reciever data
   const numberAsInt2 = parseInt(preBalancerecieve, 10);
 
   const Newbalance = numberAsInt2 + numberAsInt;
-  console.log(Newbalance);
+  /*   console.log(Newbalance); */
   //update the data
 
   const patchData = async (e) => {
