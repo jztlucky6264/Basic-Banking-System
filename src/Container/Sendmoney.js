@@ -58,6 +58,7 @@ const Sendmoney = (props) => {
     const { name, value } = event.target;
     setAmount({ ...amount, [name]: value });
   };
+
   //convert string data into integer
   const numberAsInt = parseInt(amount.Balancesend, 10);
   /* console.log("string covert to integer", numberAsInt); */
@@ -72,7 +73,7 @@ const Sendmoney = (props) => {
 
   const patchData = async (e) => {
     e.preventDefault();
-    if (numberAsInt <= SenderBalance) {
+    if (numberAsInt <= SenderBalance && senderindx !== index) {
       update(ref(database, "customer/" + senderindx), {
         Balance: senderUpdatebalance,
       })
@@ -90,10 +91,10 @@ const Sendmoney = (props) => {
         Balancesend: "",
       });
     } else {
-      toast("Insufficient Fund");
+      toast("Insufficient Fund / invalid details");
     }
   };
-
+  var invalidChars = ["-", "+", "e"];
   return (
     <>
       <form
@@ -147,6 +148,12 @@ const Sendmoney = (props) => {
               name="Balancesend"
               value={amount.Balancesend}
               type="number"
+              min="1"
+              onKeyDown={(e) => {
+                if (invalidChars.includes(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               className="form-control"
               id="validationCustom01"
               onChange={BalanceChange}
