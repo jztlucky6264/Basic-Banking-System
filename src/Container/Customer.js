@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { getDatabase, onValue, ref } from "firebase/database";
+import { database } from "./firebase";
 import { useHistory } from "react-router-dom";
 
 const Customer = () => {
@@ -6,26 +8,13 @@ const Customer = () => {
   const [datause, setDataUse] = useState([]);
   //fetching list of customer
   const getData = async (e) => {
-    try {
-      const res = await fetch(
-        "https://basic-banking-e3b64-default-rtdb.firebaseio.com/customer.json",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await res.json();
+    const db = getDatabase();
+    const starCountRef = ref(db, "customer/");
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
       console.log(data);
       setDataUse(data);
-      if (!res.ok === 200) {
-        const error = new Error(res.error);
-        console.log(error);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    });
   };
   //fetching transection list
 
@@ -54,7 +43,7 @@ const Customer = () => {
                   history.push({
                     pathname: "/profile",
                     datause: { datause },
-                    id: val.id,
+                    ind: ind,
                     firstname: val.firstname,
                     lastname: val.lastname,
                     Email: val.Email,

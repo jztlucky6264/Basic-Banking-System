@@ -72,10 +72,10 @@ const Contact = () => {
               method="POST"
               // onSubmit={formSubmit}
               className="row g-3 needs-validation"
-              novalidate
+              noValidate
             >
               <div className="col-md-4">
-                <label for="validationCustom01" className="form-label">
+                <label htmlFor="validationCustom01" className="form-label">
                   FullName
                 </label>
                 <input
@@ -91,7 +91,7 @@ const Contact = () => {
                 <div className="valid-feedback">Looks good!</div>
               </div>
               <div className="col-md-4">
-                <label for="validationCustom02" className="form-label">
+                <label htmlFor="validationCustom02" className="form-label">
                   Phone
                 </label>
                 <input
@@ -107,7 +107,10 @@ const Contact = () => {
                 <div className="valid-feedback">Looks good!</div>
               </div>
               <div className="col-md-4">
-                <label for="validationCustomUsername" className="form-label">
+                <label
+                  htmlFor="validationCustomUsername"
+                  className="form-label"
+                >
                   Username
                 </label>
                 <div className="input-group has-validation">
@@ -131,7 +134,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="validationCustom03" className="form-label">
+                <label htmlFor="validationCustom03" className="form-label">
                   City
                 </label>
                 <input
@@ -148,7 +151,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="col-md-3">
-                <label for="validationCustom04" className="form-label">
+                <label htmlFor="validationCustom04" className="form-label">
                   State
                 </label>
                 <select
@@ -159,7 +162,7 @@ const Contact = () => {
                   id="validationCustom04"
                   required
                 >
-                  <option selected disabled value="">
+                  <option disabled value="">
                     Choose...
                   </option>
                   <option>Delhi</option>
@@ -169,7 +172,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="col-md-3">
-                <label for="validationCustom05" className="form-label">
+                <label htmlFor="validationCustom05" className="form-label">
                   Zip
                 </label>
                 <input
@@ -187,7 +190,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="mb-3">
-                <label for="validationCustom06" className="form-label">
+                <label htmlFor="validationCustom06" className="form-label">
                   Textarea
                 </label>
                 <textarea

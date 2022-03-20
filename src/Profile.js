@@ -3,9 +3,10 @@ import { useHistory } from "react-router-dom";
 
 const Profile = (props) => {
   const history = useHistory();
-  const { firstname, lastname, Email, Account, Balance, id } =
-    (props.location && props.location) || {};
 
+  const { firstname, lastname, Email, Account, Balance, ind } =
+    (props.location && props.location) || {};
+  console.log(ind);
   return (
     <>
       <div className="card  mb-3 bg-transparent border-0 container mt-5">
@@ -45,7 +46,7 @@ const Profile = (props) => {
               firstnamesender: firstname,
               lastnamesender: lastname,
               SenderBalance: Balance,
-              id: id,
+              senderindx: ind,
             });
           }}
         >
