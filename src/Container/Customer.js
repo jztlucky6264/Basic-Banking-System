@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, onValue, ref } from "firebase/database";
-
 import { useHistory } from "react-router-dom";
 
 const Customer = () => {
@@ -34,6 +33,7 @@ const Customer = () => {
             <th scope="col">Balance</th>
           </tr>
         </thead>
+
         <tbody>
           {datause.map((val, ind) => {
             return (
