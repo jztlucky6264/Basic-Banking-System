@@ -96,7 +96,10 @@ const Sendmoney = (props) => {
 
   return (
     <>
-      <form method="" className=" row vertical-center-row  g-4  container mt-5">
+      <form
+        method=""
+        className=" row vertical-center-row   g-4  container mt-5"
+      >
         <div className="col-md-12 d-flex justify-content-center ">
           <div className="w-50">
             <label htmlFor="validationDefault03" className="form-label">
@@ -153,13 +156,23 @@ const Sendmoney = (props) => {
           </div>
         </div>
 
-        <div className="col-12 d-flex justify-content-center ">
+        <div className="col-12 d-flex justify-content-evenly">
           <button
             className="btn btn-primary col-4  "
             type="submit"
             onClick={patchData}
           >
             Send Money
+          </button>
+
+          <button
+            className="btn btn-primary col-4  
+          "
+            onClick={() => {
+              history.push("/customer");
+            }}
+          >
+            Go to customer list
           </button>
           <ToastContainer />
         </div>
